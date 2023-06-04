@@ -1,23 +1,21 @@
-* {
-    border: 0px;
-    padding: 0px;
+*{
     margin: 0px;
-    background-color: #DD7D05;
+    padding: 0px;
+    border: 0px;
 }
-html {     
-    scroll-behavior: smooth;     
-    scroll-padding-top: 150px;     
+
+html {
+    font-size: 62.5;
+    font-family: Arial, Helvetica, sans-serif;
 }
-.menu{
-    display: block;
-    margin-left: 450px;
-    margin-right: auto;
-    width: 50%;
-}
+
 figure{
     margin: 8px;
     margin-top: 0px;
 }
+
+
+/* Formatações do header */
 header, header a{
     background-color: #000;
     color: #fff;
@@ -57,35 +55,19 @@ header, header a{
 #local {
     width: 15%;
 }
-ul {
-    list-style-type: none;
-    margin: 0px;
-    padding: 0px;
-    width: 23%;
-    background-color: #000;
-    height: 100%;
-    position: fixed;
-    overflow: auto;
-    text-align: center;
-    color: #fff;
-}
-li a, .sanduiche{
+.indice a{
     display: block;
-    color: #fff;
+    color: #000;
     padding: 8px 16px;
     text-decoration: none;
-    background-color: #000;
 }
-li a:hover {
-    background-color: #555;
-    color: white;
+
+
+
+/* Formatações para os textos */
+h1 {
+    font-size: 3.4rem;
 }
-h2 {
-    border-top: 1px solid #fff;
-    border-bottom: 1px solid #fff;
-}
-nav, nav a{
-    color: white;
-    background-color: #000;
-    text-decoration: none;
+p {
+    font-size: 1.6rem;
 }
