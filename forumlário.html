@@ -1,0 +1,184 @@
+<!-- Tabela com preços -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Formulário</title>
+
+    <link rel="stylesheet" href="css/estilo.css">
+
+
+    <style type="text/css">
+
+
+
+        html {
+            background-color: #dd7d05;
+        }
+
+        section {
+            background-color: rgb(45, 128, 96);
+            color: rgb(2, 41, 2);
+            box-shadow: 10px 10px rgb(2, 41, 2);
+            max-width: 70%;
+            
+            margin-left: 200px;
+            text-align: justify;
+            /* Formatação do bloco */
+        }
+
+
+
+        /* Formatações específicas de alguns elementos */
+        h1 {
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        p.form{
+            padding-left: 10px;
+        }
+
+        p.form#nome {
+            margin-top: 10px;
+        }
+
+        label#tipopg{
+            font-size: 1.2rem;
+        }
+
+        
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <figure id="logo">
+            <img class="logo" src="image/20230521_183728logo.png" alt="logo">
+            <img class="excaliburger" src="image/Icone, nome.png" alt="nome">
+            <a href="../excaliburger.html"><img id="home" class="botao" src="image/Home.png" alt="home"></a>
+            <a href="local.html"><img id="local" class="botao" src="image/Local.png" alt="local"></a>
+            <a href="sobre.html"><img id="sobre" class="botao" src="image/Sobre.png" alt="sobre"></a>
+            <a href="forumlário.html"><img id="contato" class="botao" src="image/contato.png" alt="contato"></a>
+        </figure>
+    </header>
+
+
+    <br><br>
+    <section class="info">
+        <h1>Reserva de mesa</h1>
+
+    
+        <form action="#" method="get" target="_self" id="form">
+    
+            <!-- Nome -->
+            <p class="form" id="nome">
+                <label for="nome">Nome:</label><br>
+                <input type="text" name="nome" id="nome" placeholder="Insira seu nome aqui" size="28" >
+            </p>
+    
+    
+            <!-- Telefone -->
+            <p class="form">
+                <label for="tel">Telefone:</label><br>
+                <input type="tel" id="tel" name="telefone" placeholder="Insira seu telefone aqui" size="28">
+            </p>
+    
+            <!-- Local -->
+            <p class="form">
+                <label for="local">Local</label><br>
+                <select name="local" id="local">
+                    <option value="0">Selecione o local</option>
+                    <option value="CASTELO">BH - Castelo</option>
+                    <option value="SANTAINES">BH - Santa Inês</option>
+                    <option value="BETIM">Betim</option>
+                </select>
+            </p>
+    
+            <!-- Quantidade de pessoas -->
+            <p class="form">
+                <label for="qpessoas">Quantidade de pessoas</label><br>
+                <input type="text" id="qpessoas" name="qpessoas" placeholder="Insira a quantidade de pessoas" size="30">
+    
+            </p>
+    
+
+            <!-- Data -->
+            <p class="form">
+                <label for="date">Data</label><br>
+                <input type="date" id="date" name="date" size="28">
+            </p>
+
+            <!-- Hora -->
+            <p class="form">
+                <label for="time">Horário</label><br>
+                <input type="time" id="time" name="time" size="28">
+            </p>
+    
+            <!-- Confirmar e resetar -->
+            <p class="form">    
+                <input type="submit" id="confirmar" name="situacao" value="Finalizar" title="Finalizar compra" style="background-color: lime;">
+                <input type="reset" id="resetar" name="situacao" value="Resetar" title="Limpar dados" style="background-color: lightcoral;">
+            </p>
+
+            <script>
+
+                document.getElementById("form").addEventListener("submit", function(event)
+                {
+                    event.preventDefault(); //Preende o usuário em um loop
+
+                    //Convertendo os inputs html em variáveis js
+                    let name = document.getElementById("nome").value;
+                    let phone = document.getElementById("tel").value;
+                    let numPeople = document.getElementById("qpessoas").value;
+                    let date = document.getElementById("date").value;
+                    let time = document.getElementById("time").value;
+                    
+                    
+                    let localinput = document.querySelector("#local");
+                    let local = localinput.value;
+                    
+                    
+
+                    //testando se os campos não estão vazios
+                    if (name === "" || phone === "" || numPeople === "" || date === "" || time === "") 
+                    {
+                        alert("Por favor preencha todos os campos.");
+                    
+                    }else if (local === '0')
+                    {
+                        alert("Por favor selecione um local.") //Não colocou o local
+
+                    } else if (numPeople <= 0)  //Quantidade de pessoas negativas
+                    {
+                        alert("A quantidade de pessoas tem que ser maior que 0.");
+
+                    } else if (numPeople > 15) // mais de 15 pessoas
+                    {
+                        alert("Para mais de 15 pessoas é considerado festa e deve ser agendado ligando para 3787-0027");
+
+                    } else if (new Date(date) < new Date()) // Data no passado
+                    {
+                        alert("Por favor escolha uma data atual ou futura.");
+                    
+                    } else // reserva concluída
+                    {
+                        alert("Reserva concluída!\nCaso ninguém compareça em 30mim e se não conseguirmos contatar niguém a reserva será cancelada.");
+                    }
+                });
+
+
+            </script>
+
+            <br>
+        </form>
+    </section>
+    <br><br>
+</body>
+
+</html>
